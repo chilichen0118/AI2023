@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #020202;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+}
+
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.btn {
+  padding: 20px 40px;
+  border: 1px solid #fff;
+  border-radius: 16px;
+  margin-top: 40px;
+  font-weight: 900;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-sb {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.container,
+.bg-white {
+  max-width: 1296px;
+  margin: 0 auto;
+}
+
+.container-top > div, .header {
+  margin-bottom: 160px;
+}
+
+.header {
+  max-width: 1296px;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #fff;
+}
+.header .logo img {
+  height: 40px;
+}
+.header .menu a {
+  font-weight: 700;
+  padding-left: 20px;
+}
+
+.banner h2 {
+  font-size: 7.5rem;
+  margin-top: 40px;
+}
+.banner .banner-animation {
+  text-align: right;
+  font-size: 0;
+}
+.banner .banner-animation span {
+  display: inline-block;
+  width: 180px;
+  overflow: hidden;
+}
+
+.service .service-head {
+  margin-bottom: 80px;
+}
+.service .service-head h2 {
+  font-size: 2rem;
+  margin-right: 24px;
+  flex-shrink: 0;
+  flex-basis: 414px;
+}
+.service .service-head h3 {
+  font-size: 3rem;
+}
+.service .service-list li {
+  max-width: 416px;
+  padding: 80px 40px;
+  border: 1px solid #525252;
+  border-radius: 16px;
+}
+.service .service-list .material-icons {
+  font-size: 80px;
+}
+.service .service-list h2 {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.partner h2 {
+  font-size: 2rem;
+  margin-bottom: 80px;
+}
+.partner .partner-list {
+  position: relative;
+  flex-direction: column;
+  overflow: hidden;
+}
+.partner .partner-list::before, .partner .partner-list::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  display: inline-block;
+  width: 196px;
+  height: 100px;
+  background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+.partner .partner-list::after {
+  left: auto;
+  right: 0;
+  background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+.partner li {
+  overflow-x: scroll;
+}
+.partner li::-webkit-scrollbar {
+  display: none;
+}
+.partner li:nth-child(2) {
+  transform: translateX(-90px);
+  margin-top: 20px;
+}
+.partner img {
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 20px;
+}/*# sourceMappingURL=style.css.map */

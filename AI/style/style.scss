@@ -1,0 +1,206 @@
+$black-100: #020202;
+$black-80: #525252;
+$black-60: #919191;
+$black-40: #d1d1d1;
+$black-20: #f2f2f2;
+$black-0: #fff;
+$primary: #f18724;
+$surface: #f2efe7;
+$font: 'Noto Sans TC', sans-serif;
+$font-regular: 400;
+$font-bold: 700;
+$font-black: 900;
+
+// 相同樣式
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: $black-100;
+    color: $black-0;
+    font-size: 16px;
+    font-weight: $font-regular;
+    line-height: 1.5;
+    font-family: $font;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: $black-0;
+    display: inline-block;
+}
+
+h2,
+h3 {
+    line-height: 1.2;
+    font-weight: $font-black;
+}
+
+.btn {
+    padding: 20px 40px;
+    border: 1px solid $black-0;
+    border-radius: 16px;
+    margin-top: 40px;
+    font-weight: $font-black;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-sb {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.container,
+.bg-white {
+    max-width: 1296px;
+    margin: 0 auto;
+}
+
+
+// header
+.container-top > div, .header {
+    margin-bottom: 160px;
+}
+
+.header {
+    max-width: 1296px;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid $black-0;
+
+    .logo {
+
+        img {
+            height: 40px;
+        }
+
+    }
+
+    .menu {
+        a {
+            font-weight: $font-bold;
+            padding-left: 20px;
+        }
+    }
+}
+
+// banner
+
+.banner {
+
+    h2 {
+        font-size: 7.5rem;
+        margin-top: 40px;
+    }
+
+    .banner-animation {
+        text-align: right;
+        font-size: 0;
+
+        span {
+            display: inline-block;
+            width: 180px;
+            overflow: hidden;
+        }
+    }
+}
+
+// service
+
+.service {
+
+    .service-head {
+        margin-bottom: 80px;
+
+        h2 {
+            font-size: 2rem;
+            margin-right: 24px;
+            flex-shrink: 0;
+            flex-basis: 414px;
+        }
+
+        h3 {
+            font-size: 3rem;
+        }
+    }
+
+    .service-list {
+        li {
+            max-width: 416px;
+            padding: 80px 40px;
+            border: 1px solid $black-80;
+            border-radius: 16px;
+        }
+
+        .material-icons {
+            font-size: 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+    }
+}
+
+.partner {
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 80px;
+    }
+
+    .partner-list {
+        position: relative;
+        flex-direction: column;
+        overflow: hidden;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            display: inline-block;
+            width: 196px;
+            height: 100px;
+            background-image: linear-gradient(to right,rgba(0,0,0,100),rgba(0,0,0,0));
+        }
+
+        &::after {
+            left: auto;
+            right: 0;
+            background-image: linear-gradient(to left,rgba(0,0,0,100),rgba(0,0,0,0));
+        }
+    }
+
+    li {
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &:nth-child(2) {
+            transform: translateX(-90px);
+            margin-top: 20px;
+        }
+    }
+
+    img {
+        height: 40px;
+        object-fit: cover;
+        margin: 0 20px;
+    }
+}
