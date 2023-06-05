@@ -15,6 +15,105 @@ const swiper = new Swiper(".swiper", {
     }
 });
 
+
+// 下拉選單
+let date = document.querySelector('.filter-date .filter-btn');
+let type = document.querySelector('.filter-type .filter-btn');
+let dateDropdown = document.querySelector('.filter-date-list');
+let typeDropdown = document.querySelector('.filter-type-list');
+let dateDropdownList = document.querySelectorAll('.filter-date-list li');
+let typeDropdownOne = document.querySelector('.filter-type-area-one');
+let typeDropdownTwo = document.querySelector('.filter-type-area-two');
+let typeDropdownAll = document.querySelectorAll('.filter-type-list-item li');
+let dateText = document.querySelector('.filter-date .filter-type-text');
+let typeText = document.querySelector('.filter-type .filter-type-text');
+
+
+date.addEventListener('click', function () {
+    if (dateDropdown.style.display === 'block') {
+        dateDropdown.style.display = 'none';
+    } else {
+        dateDropdown.style.display = 'block';
+    }
+});
+
+type.addEventListener('click', function () {
+    if (typeDropdown.style.display === 'block') {
+        typeDropdown.style.display = 'none';
+    } else {
+        typeDropdown.style.display = 'block';
+    }
+});
+
+
+for (let i = 0; i < dateDropdownList.length; i++) {
+    dateDropdownList[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        let dateText = this.textContent;
+        changeDateText(dateText);
+    })
+}
+
+for (let i = 0; i < typeDropdownAll.length; i++) {
+    typeDropdownAll[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        let typeText = this.textContent;
+        changeTypeText(typeText);
+    })
+}
+
+for (let i = 0; i < typeDropdownAll.length; i++) {
+    typeDropdownAll[i].addEventListener("change", function () {
+        updateButtonText();
+    });
+}
+
+
+function changeDateText(text) {
+    dateText.textContent = text;
+    dateDropdown.style.display = 'none';
+}
+
+function changeTypeText(text) {
+    typeText.textContent = text;
+    typeDropdown.style.display = 'none';
+}
+
+document.addEventListener("click", function (e) {
+    let targetElement = e.target;
+    if (!date.contains(targetElement) && !dateDropdown.contains(targetElement) && !type.contains(targetElement) && !typeDropdown.contains(targetElement)) {
+        dateDropdown.style.display = "none";
+        typeDropdown.style.display = "none";
+    }
+});
+
+// scrollTop
+const scrollTop = document.querySelector('.top');
+scrollTop.addEventListener('click', function () {
+    scrollToTop(.5);
+});
+
+function scrollToTop(duration) {
+    let start = window.scrollY;
+    let startTime = performance.now();
+
+    function scrollStep(timestamp) {
+        let currentTime = timestamp || performance.now();
+        let elapsedTime = currentTime - startTime;
+        let scrollDistance = Math.max(start - (elapsedTime / (duration * 1000)) * start, 0);
+
+        window.scrollTo(0, scrollDistance);
+
+        if (window.scrollY > 0) {
+            requestAnimationFrame(scrollStep);
+        }
+    }
+
+    requestAnimationFrame(scrollStep);
+}
+
+// ai card
+
 const toolInfo = [
     //   01
     {
@@ -94,3 +193,34 @@ for (let i = 0; i < toolInfo.length; i++) {
     toolsContent.appendChild(toolList);
 }
 
+// qa
+let qaButton = document.querySelectorAll('.qa-list li');
+let qaAnswer = document.querySelectorAll('.qa-list-content p');
+
+for (let i = 0; i < qaButton.length; i++) {
+    qaButton[i].addEventListener('click', function () {
+        if (qaAnswer[i].style.display === 'block') {
+            qaAnswer[i].style.display = 'none';
+        } else {
+            qaAnswer[i].style.display = 'block';
+        }
+    });
+}
+
+// phone menuDropdown
+const menuBtn = document.querySelector('.menu-btn .menu-btn-hamburger');
+const menuCloseBtn = document.querySelector('.menu-btn .menu-btn-close');
+const menuDropdown = document.querySelector('.menu-collapse')
+menuBtn.addEventListener('click', function() {
+    menuDropdown.style.zIndex = 999;
+    menuDropdown.style.opacity = 1;
+    menuBtn.style.display = 'none';
+    menuCloseBtn.style.display = 'block';
+});
+
+menuCloseBtn.addEventListener('click', function() {
+    menuDropdown.style.zIndex = -1;
+    menuDropdown.style.opacity = 0;
+    menuCloseBtn.style.display = 'none';
+    menuBtn.style.display = 'block';
+})

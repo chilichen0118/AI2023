@@ -9,6 +9,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-family: "Noto Sans TC", sans-serif;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -82,6 +83,10 @@ h3 {
 .header .menu a {
   font-weight: 700;
   padding-left: 20px;
+  transition: color 0.3s;
+}
+.header .menu a:hover {
+  color: #cccccc;
 }
 .header .menu-btn {
   display: none;
@@ -94,10 +99,11 @@ h3 {
   color: #fff;
 }
 .header .menu-collapse {
-  display: none;
   position: absolute;
   top: 101%;
   width: 100%;
+  z-index: -1;
+  opacity: 0;
   height: calc(100vh - 80px);
   flex-direction: column;
   background: #020202;
@@ -111,6 +117,10 @@ h3 {
   font-size: 5rem;
   font-weight: 900;
   line-height: 1.2;
+  transition: color 0.3s;
+}
+.header .menu-collapse-list-pages a:hover {
+  color: #cccccc;
 }
 .header .menu-collapse-list-pages a:not(:last-child) {
   margin-bottom: 8px;
@@ -134,11 +144,22 @@ h3 {
   margin-right: 20px;
   font-weight: 700;
   padding: 12px 0;
+  transition: color 0.3s;
+}
+.header .menu-collapse-list-copyright a:hover {
+  color: #cccccc;
 }
 
 .banner h2 {
   font-size: 7.5rem;
   margin-top: 40px;
+}
+.banner a {
+  transition: all 0.3s;
+}
+.banner a:hover {
+  color: #cccccc;
+  border-color: #cccccc;
 }
 .banner .banner-animation {
   text-align: right;
@@ -363,6 +384,8 @@ h3 {
   border-radius: 16px;
   min-width: 240px;
   margin-top: 4px;
+  background: #fff;
+  z-index: 1;
   display: none;
 }
 .filter-type .filter-type-list-head span {
@@ -417,7 +440,9 @@ h3 {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   margin-top: 4px;
+  background: #fff;
   display: none;
+  z-index: 1;
 }
 .filter-date .filter-date-list li:hover {
   background: #f2f2f2;
@@ -477,8 +502,15 @@ h3 {
 }
 .tools-pagination li {
   margin-left: 4px;
+  transition: outline 0.3s;
+  border-radius: 16px;
 }
-.tools-pagination a {
+.tools-pagination li:hover:not(:last-child) {
+  outline: 1px solid #020202;
+  background: transparent;
+  color: #fff;
+}
+.tools-pagination li a {
   color: #020202;
   display: block;
   width: 48px;
@@ -487,7 +519,7 @@ h3 {
   line-height: 48px;
   text-align: center;
 }
-.tools-pagination a span {
+.tools-pagination li a span {
   line-height: 48px;
 }
 .tools-pagination .tools-pagination-style {
@@ -508,6 +540,11 @@ h3 {
 }
 .callToAction a {
   line-height: 1.2;
+  transition: all 0.3s;
+}
+.callToAction a:hover {
+  color: #cccccc;
+  border-color: #cccccc;
 }
 .callToAction a span {
   margin-left: 16px;
@@ -525,6 +562,10 @@ h3 {
   font-size: 5rem;
   font-weight: 900;
   line-height: 1.2;
+  transition: color 0.3s;
+}
+.sitemap .sitemap-list a:hover {
+  color: #cccccc;
 }
 .sitemap .sitemap-img img {
   height: 40px;
@@ -539,6 +580,10 @@ h3 {
 }
 .footer .social a {
   padding: 12px 20px;
+  transition: color 0.3s;
+}
+.footer .social a:hover {
+  color: #cccccc;
 }
 .footer .top {
   margin-left: auto;
@@ -647,6 +692,7 @@ h3 {
   flex-basis: 856px;
 }
 .qa .qa-list li {
+  cursor: pointer;
   padding: 20px 40px;
   border: 1px solid #525252;
   border-radius: 16px;
@@ -690,6 +736,9 @@ h3 {
   }
   .header .menu-btn {
     display: block;
+  }
+  .header .menu-btn-close {
+    display: none;
   }
   .banner h2 {
     max-width: 285px;

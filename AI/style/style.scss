@@ -24,6 +24,7 @@ body {
     font-weight: $font-regular;
     line-height: 1.5;
     font-family: $font;
+    scroll-behavior: smooth;
 }
 
 img {
@@ -104,6 +105,11 @@ h3 {
         a {
             font-weight: $font-bold;
             padding-left: 20px;
+            transition: color .3s;
+
+            &:hover {
+                color: darken($black-0, 20%);
+            }
         }
     }
 
@@ -120,10 +126,12 @@ h3 {
     }
 
     .menu-collapse {
-        display: none;
+        // display: block;
         position: absolute;
         top: 101%;
         width: 100%;
+        z-index: -1;
+        opacity: 0;
         height: calc(100vh - 80px);
         flex-direction: column;
         background: $black-100;
@@ -138,6 +146,11 @@ h3 {
             font-size: 5rem;
             font-weight: $font-black;
             line-height: 1.2;
+            transition: color .3s;
+
+            &:hover {
+                color: darken($black-0, 20%);
+            }
 
             &:not(:last-child) {
                 margin-bottom: 8px;
@@ -167,6 +180,11 @@ h3 {
             margin-right: 20px;
             font-weight: $font-bold;
             padding: 12px 0;
+            transition: color .3s;
+
+            &:hover {
+                color: darken($black-0, 20%);
+            }
         }
     }
 }
@@ -178,6 +196,15 @@ h3 {
     h2 {
         font-size: 7.5rem;
         margin-top: 40px;
+    }
+
+    a {
+        transition: all .3s;
+
+        &:hover {
+            color: darken($black-0, 20%);
+            border-color: darken($black-0, 20%);
+        }
     }
 
     .banner-animation {
@@ -455,6 +482,8 @@ h3 {
         border-radius: 16px;
         min-width: 240px;
         margin-top: 4px;
+        background: $black-0;
+        z-index: 1;
         display: none;
     }
 
@@ -527,7 +556,9 @@ h3 {
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
         border-radius: 16px;
         margin-top: 4px;
+        background: $black-0;
         display: none;
+        z-index: 1;
 
         li {
             &:hover {
@@ -607,21 +638,31 @@ h3 {
 
     li {
         margin-left: 4px;
-    }
-
-    a {
-        color: $black-100;
-        display: block;
-        width: 48px;
-        height: 48px;
+        transition: outline .3s;
         border-radius: 16px;
-        line-height: 48px;
-        text-align: center;
 
-        span {
+        &:hover:not(:last-child) {
+            outline: 1px solid $black-100;
+            background: transparent;
+            color: $black-0;
+        }
+
+        a {
+            color: $black-100;
+            display: block;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
             line-height: 48px;
+            text-align: center;
+    
+            span {
+                line-height: 48px;
+            }
         }
     }
+
+    
 
     .tools-pagination-style {
         background: $black-100;
@@ -643,6 +684,12 @@ h3 {
 
     a {
         line-height: 1.2;
+        transition: all .3s;
+
+        &:hover {
+            color: darken($black-0, 20%);
+            border-color: darken($black-0, 20%);
+        }
 
         span {
             margin-left: 16px;
@@ -669,6 +716,11 @@ h3 {
             font-size: 5rem;
             font-weight: $font-black;
             line-height: 1.2;
+            transition: color .3s;
+
+            &:hover {
+                color: darken($black-0, 20%);
+            }
         }
     }
 
@@ -691,6 +743,11 @@ h3 {
 
         a {
             padding: 12px 20px;
+            transition: color .3s;
+
+            &:hover {
+                color: darken($black-0, 20%);
+            }
         }
     }
 
@@ -834,7 +891,7 @@ h3 {
         flex-basis: 856px;
 
         li {
-
+            cursor: pointer;
             padding: 20px 40px;
             border: 1px solid $black-80;
             border-radius: 16px;
@@ -894,6 +951,10 @@ h3 {
 
         .menu-btn {
             display: block;
+        }
+
+        .menu-btn-close {
+            display: none;
         }
     }
 
