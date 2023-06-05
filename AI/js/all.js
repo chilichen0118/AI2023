@@ -1,3 +1,20 @@
+const swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    breakpoints: {
+        //     576以上
+        576: {
+            slidesPerView: 3,
+            slidesPerGroup: 3
+        },
+
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+    }
+});
+
 const toolInfo = [
     //   01
     {
@@ -54,8 +71,8 @@ toolsContent.replaceChildren();
 for (let i = 0; i < toolInfo.length; i++) {
     let toolList = document.createElement('li');
     toolList.classList.add('d-flex', 'tools-list');
-    toolList.innerHTML = 
-    `
+    toolList.innerHTML =
+        `
         <div class="tool-img">
             <img src="${toolInfo[i].imgURL}" alt="${toolInfo[i].title}">
         </div>
