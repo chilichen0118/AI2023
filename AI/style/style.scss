@@ -531,12 +531,19 @@ h3 {
         &:last-child {
             margin-right: 0;
         }
+
+        &:hover a {
+            color: $black-100;
+        }
+
+
     }
 
     a {
         padding: 8px 16px;
         color: $black-60;
         border-radius: 16px;
+        transition: color .3s;
     }
 
     .tools-filter-list-style {
